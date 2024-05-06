@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  namespace :user_block do 
+    resources :users
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :google_sheet_block do 
+    post 'create_file', to: 'google_sheet#create_file'
+    get 'country_details', to: 'google_sheet#country_details'
+  end
 end
